@@ -1,0 +1,70 @@
+#-----------------------------------------------------------
+# Vivado v2024.2 (64-bit)
+# SW Build 5239630 on Fri Nov 08 22:35:27 MST 2024
+# IP Build 5239520 on Sun Nov 10 16:12:51 MST 2024
+# SharedData Build 5239561 on Fri Nov 08 14:39:27 MST 2024
+# Start of session at: Mon Mar 10 12:06:27 2025
+# Process ID         : 26912
+# Current directory  : C:/Users/petrv/Desktop/PC_04_template_2025
+# Command line       : vivado.exe -gui_launcher_event rodinguilauncherevent15504 C:\Users\petrv\Desktop\PC_04_template_2025\Stopwatch.xpr
+# Log file           : C:/Users/petrv/Desktop/PC_04_template_2025/vivado.log
+# Journal file       : C:/Users/petrv/Desktop/PC_04_template_2025\vivado.jou
+# Running On         : LAPTOP-9IM6L6CH
+# Platform           : Windows Server 2016 or Windows 10
+# Operating System   : 22631
+# Processor Detail   : Intel(R) Core(TM) i7-10750H CPU @ 2.60GHz
+# CPU Frequency      : 2592 MHz
+# CPU Physical cores : 6
+# CPU Logical cores  : 12
+# Host memory        : 16954 MB
+# Swap memory        : 9126 MB
+# Total Virtual      : 26081 MB
+# Available Virtual  : 13789 MB
+#-----------------------------------------------------------
+start_gui
+open_project C:/Users/petrv/Desktop/PC_04_template_2025/Stopwatch.xpr
+update_compile_order -fileset sources_1
+launch_simulation
+source ce_gen_tb.tcl
+close_sim
+launch_simulation
+source ce_gen_tb.tcl
+# Disabling source management mode.  This is to allow the top design properties to be set without GUI intervention.
+set_property source_mgmt_mode None [current_project]
+set_property top rp_top [get_filesets sim_1]
+set_property top_lib xil_defaultlib [get_filesets sim_1]
+# Re-enabling previously disabled source management mode.
+set_property source_mgmt_mode All [current_project]
+update_compile_order -fileset sim_1
+launch_simulation
+close_sim
+launch_simulation
+source rp_top.tcl
+close_sim
+# Disabling source management mode.  This is to allow the top design properties to be set without GUI intervention.
+set_property source_mgmt_mode None [current_project]
+set_property top bcd_counter [current_fileset]
+# Re-enabling previously disabled source management mode.
+set_property source_mgmt_mode All [current_project]
+update_compile_order -fileset sources_1
+launch_simulation
+source rp_top.tcl
+close_sim
+launch_simulation
+source rp_top.tcl
+# Disabling source management mode.  This is to allow the top design properties to be set without GUI intervention.
+set_property source_mgmt_mode None [current_project]
+set_property top rp_top [current_fileset]
+# Re-enabling previously disabled source management mode.
+set_property source_mgmt_mode All [current_project]
+update_compile_order -fileset sources_1
+# Disabling source management mode.  This is to allow the top design properties to be set without GUI intervention.
+set_property source_mgmt_mode None [current_project]
+set_property top bcd_counter [get_filesets sim_1]
+set_property top_lib xil_defaultlib [get_filesets sim_1]
+# Re-enabling previously disabled source management mode.
+set_property source_mgmt_mode All [current_project]
+close_sim
+launch_simulation
+source bcd_counter.tcl
+close_sim
