@@ -1,0 +1,24 @@
+#-----------------------------------------------------------
+# Vivado v2024.2 (64-bit)
+# SW Build 5239630 on Fri Nov 08 22:35:27 MST 2024
+# IP Build 5239520 on Sun Nov 10 16:12:51 MST 2024
+# SharedData Build 5239561 on Fri Nov 08 14:39:27 MST 2024
+# Start of session at: Wed Mar 12 18:49:28 2025
+# Process ID         : 32060
+# Current directory  : C:/Users/petrv/Desktop/PC_04_template_2025/Stopwatch.runs/synth_1
+# Command line       : vivado.exe -log rp_top.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source rp_top.tcl
+# Log file           : C:/Users/petrv/Desktop/PC_04_template_2025/Stopwatch.runs/synth_1/rp_top.vds
+# Journal file       : C:/Users/petrv/Desktop/PC_04_template_2025/Stopwatch.runs/synth_1\vivado.jou
+# Running On         : LAPTOP-9IM6L6CH
+# Platform           : Windows Server 2016 or Windows 10
+# Operating System   : 22631
+# Processor Detail   : Intel(R) Core(TM) i7-10750H CPU @ 2.60GHz
+# CPU Frequency      : 2592 MHz
+# CPU Physical cores : 6
+# CPU Logical cores  : 12
+# Host memory        : 16954 MB
+# Swap memory        : 10942 MB
+# Total Virtual      : 27897 MB
+# Available Virtual  : 5537 MB
+#-----------------------------------------------------------
+source rp_top.tcl -notrace

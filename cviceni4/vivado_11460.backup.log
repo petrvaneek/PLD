@@ -1,0 +1,51 @@
+#-----------------------------------------------------------
+# Vivado v2024.2 (64-bit)
+# SW Build 5239630 on Fri Nov 08 22:35:27 MST 2024
+# IP Build 5239520 on Sun Nov 10 16:12:51 MST 2024
+# SharedData Build 5239561 on Fri Nov 08 14:39:27 MST 2024
+# Start of session at: Tue Mar 11 16:37:36 2025
+# Process ID         : 11460
+# Current directory  : C:/Users/petrv/Desktop/PC_04_template_2025
+# Command line       : vivado.exe -gui_launcher_event rodinguilauncherevent6020 C:\Users\petrv\Desktop\PC_04_template_2025\Stopwatch.xpr
+# Log file           : C:/Users/petrv/Desktop/PC_04_template_2025/vivado.log
+# Journal file       : C:/Users/petrv/Desktop/PC_04_template_2025\vivado.jou
+# Running On         : LAPTOP-9IM6L6CH
+# Platform           : Windows Server 2016 or Windows 10
+# Operating System   : 22631
+# Processor Detail   : Intel(R) Core(TM) i7-10750H CPU @ 2.60GHz
+# CPU Frequency      : 2592 MHz
+# CPU Physical cores : 6
+# CPU Logical cores  : 12
+# Host memory        : 16954 MB
+# Swap memory        : 9126 MB
+# Total Virtual      : 26081 MB
+# Available Virtual  : 12011 MB
+#-----------------------------------------------------------
+start_gui
+open_project C:/Users/petrv/Desktop/PC_04_template_2025/Stopwatch.xpr
+INFO: [filemgmt 56-3] Default IP Output Path : Could not find the directory 'C:/Users/petrv/Desktop/PC_04_template_2025/Stopwatch.gen/sources_1'.
+CRITICAL WARNING: [Project 1-19] Could not find the file 'C:/Users/petrv/Desktop/PC_04_template_2025/SOURCES/SIM/stopwatch_tb.vhd'.
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'D:/VIVADO/Vivado/2024.2/data/ip'.
+open_project: Time (s): cpu = 00:00:02 ; elapsed = 00:00:07 . Memory (MB): peak = 1224.852 ; gain = 126.148
+update_compile_order -fileset sources_1
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-12493] Simulation top is 'btn_in_tb'
+WARNING: [Vivado 12-13340] Unable to auto find GCC executables from simulator install path! (path not set)
+boost::filesystem::remove: Proces nem· p¯Ìstup k souboru, neboù jej pr·vÏ vyuûÌv· jin˝ proces: "C:/Users/petrv/Desktop/PC_04_template_2025/Stopwatch.sim/sim_1/behav/xsim/simulate.log"
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-12493] Simulation top is 'btn_in_tb'
+WARNING: [Vivado 12-13340] Unable to auto find GCC executables from simulator install path! (path not set)
+boost::filesystem::remove: Proces nem· p¯Ìstup k souboru, neboù jej pr·vÏ vyuûÌv· jin˝ proces: "C:/Users/petrv/Desktop/PC_04_template_2025/Stopwatch.sim/sim_1/behav/xsim/simulate.log"
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-12493] Simulation top is 'btn_in_tb'
+WARNING: [Vivado 12-13340] Unable to auto find GCC executables from simulator install path! (path not set)
+boost::filesystem::remove: Proces nem· p¯Ìstup k souboru, neboù jej pr·vÏ vyuûÌv· jin˝ proces: "C:/Users/petrv/Desktop/PC_04_template_2025/Stopwatch.sim/sim_1/behav/xsim/simulate.log"
+exit
+INFO: [Common 17-206] Exiting Vivado at Tue Mar 11 16:44:47 2025...
