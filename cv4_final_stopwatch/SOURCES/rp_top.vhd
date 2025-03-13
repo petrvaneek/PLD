@@ -32,6 +32,7 @@ ARCHITECTURE Structural OF rp_top IS
 
   ------------------------------------------------------------------------------
   SIGNAL btn_db            : STD_LOGIC;
+  SIGNAL btn_db2            : STD_LOGIC;
   SIGNAL btn_edge          : STD_LOGIC;
   --SIGNAL start_stop        : STD_LOGIC;
   --SIGNAL rst_stopwatch     : STD_LOGIC;
@@ -45,8 +46,12 @@ ARCHITECTURE Structural OF rp_top IS
   SIGNAL btn_neg            : STD_LOGIC;
   SIGNAL btn_pos            : STD_LOGIC;
   SIGNAL disp_en        : STD_LOGIC := '0';
+  SIGNAL btn_debounced      : STD_LOGIC_VECTOR( 3 DOWNTO 0);
+  SIGNAL btn_edge_pos       : STD_LOGIC_VECTOR( 3 DOWNTO 0);
+  SIGNAL btn_edge_neg       : STD_LOGIC_VECTOR( 3 DOWNTO 0);
+  SIGNAL btn_edge_any       : STD_LOGIC_VECTOR( 3 DOWNTO 0);
 ----------------------------------------------------------------------------------
-  COMPONENT cen_gen_100Hz
+  COMPONENT ce_gen
   GENERIC (
                 G_DIV_FACT          : POSITIVE := 2
            );
@@ -54,11 +59,14 @@ ARCHITECTURE Structural OF rp_top IS
       CLK       : IN STD_LOGIC;
       SRST      : IN STD_LOGIC;
       CE        : IN STD_LOGIC;
-      CE_0      : OUT STD_LOGIC
+      CE_O      : OUT STD_LOGIC
       
   );
-  END COMPONENT cen_gen_100Hz;
+  END COMPONENT ce_gen;
 COMPONENT btn_in
+   GENERIC(
+    G_DEB_PERIOD        : POSITIVE := 3
+  );
     PORT(
         CLK                 : IN    STD_LOGIC;
         CE                  : IN    STD_LOGIC;
@@ -70,7 +78,7 @@ COMPONENT btn_in
     );
 END COMPONENT btn_in;
  COMPONENT stopwatch_fsm
-  PORT(
+ PORT(
      CLK                 : IN    STD_LOGIC;
     BTN_S_S             : IN    STD_LOGIC;
     BTN_L_C             : IN    STD_LOGIC;
@@ -126,40 +134,33 @@ BEGIN
 
   --------------------------------------------------------------------------------
   -- clock enable generator
-cen_gen_100Hz_i: cen_gen_100Hz
+cen_gen_100Hz_i: ce_gen
     GENERIC  MAP (G_DIV_FACT => 500000)
     PORT MAP ( CLK => CLK,
-               SRST => sigrst,
-               CE  => cen,
-               CE_0 => ce
+               SRST => '0',
+               CE  => '1',
+               CE_O => ce
     );
 
 
   --------------------------------------------------------------------------------
   -- button input module
 
-  -- DEBOUNCE & EDGE DETECTION
-  btn_in_1 : btn_in
-  PORT MAP(
-        CLK               => CLK, 
-        CE                => cen, 
-        BTN               => BTN(3), 
-        BTN_DEBOUNCED     => btn_db,
-        BTN_EDGE_POS      => btn_edge, 
-        BTN_EDGE_NEG      => btn_neg, 
-        BTN_EDGE_ANY      => btn_pos 
-  );
-  -- DEBOUNCE & EDGE DETECTION
-  btn_in_2 : btn_in
-  PORT MAP(
-        CLK               => CLK, 
-        CE                => cen, 
-        BTN               => BTN(2), 
-        BTN_DEBOUNCED     => btn_db,
-        BTN_EDGE_POS      => btn_edge, 
-        BTN_EDGE_NEG      => btn_neg, 
-        BTN_EDGE_ANY      => btn_pos 
-  );
+  gen_btn_in : for i in 0 to 3 generate
+    btn_in_i : btn_in
+    GENERIC MAP(
+      G_DEB_PERIOD => 5
+    )
+    PORT MAP(
+      CLK                 => CLK,
+      CE                  => ce,
+      BTN                 => BTN(i),
+      BTN_DEBOUNCED       => btn_debounced(i),
+      BTN_EDGE_POS        => btn_edge_pos(i),
+      BTN_EDGE_NEG        => btn_edge_neg(i),
+      BTN_EDGE_ANY        => btn_edge_any(i)
+    );
+  end generate gen_btn_in;
 
   --------------------------------------------------------------------------------
   -- stopwatch module (4-decade BCD counter)
@@ -182,8 +183,8 @@ cen_gen_100Hz_i: cen_gen_100Hz
   stopwatch_fsm_i : stopwatch_fsm
   PORT MAP(
        CLK   => CLK,       
-       BTN_S_S  => BTN(3),   
-       BTN_L_C  => BTN(2),   
+       BTN_S_S  => btn_edge_pos(0),  
+       BTN_L_C  => btn_edge_pos(3),   
        CNT_RESET   => sigrst,
        CNT_ENABLE  => cen,
        DISP_ENABLE => disp_en
