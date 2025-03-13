@@ -39,19 +39,7 @@ signal disp_CNT_3 : std_logic_vector(3 DOWNTO 0) := "0000";
 ----------------------------------------------------------------------------------
 BEGIN
 ----------------------------------------------------------------------------------
-  -- BCD counter
-clk_en0 : entity work.ce_gen
-    generic map(
-        -- FOR SIMULATION, CHANGE THIS VALUE TO 4
-        -- FOR IMPLEMENTATION, KEEP THIS VALUE TO 400,000
-        G_DIV_FACT  => 5000000
-    )
-    port map(
-        CLK   => CLK,
-        SRST => CNT_RESET,
-        CE_O  => c_en,
-        CE => CNT_ENABLE
-    );
+
 process(CLK)
   begin
     if rising_edge(CLK) then
