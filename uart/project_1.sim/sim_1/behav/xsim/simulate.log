@@ -1,0 +1,8 @@
+Time resolution is 1 ps
+Note: ================================================================
+Time: 6120 ns  Iteration: 0  Process: /uart_tb/UART_Tx_stimuli  File: C:/Users/petrv/Desktop/PLD/STOPWATCH_UART/project_1/SOURCES/uart_tb.vhd
+Note: Simulation finished!
+Time: 6120 ns  Iteration: 0  Process: /uart_tb/UART_Tx_stimuli  File: C:/Users/petrv/Desktop/PLD/STOPWATCH_UART/project_1/SOURCES/uart_tb.vhd
+Failure: ================================================================
+Time: 6120 ns  Iteration: 0  Process: /uart_tb/UART_Tx_stimuli  File: C:/Users/petrv/Desktop/PLD/STOPWATCH_UART/project_1/SOURCES/uart_tb.vhd
+$finish called at time : 6120 ns : File "C:/Users/petrv/Desktop/PLD/STOPWATCH_UART/project_1/SOURCES/uart_tb.vhd" Line 107
