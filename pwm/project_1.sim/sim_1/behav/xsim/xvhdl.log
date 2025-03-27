@@ -1,0 +1,4 @@
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/petrv/Desktop/PLD/Stopwatch_pwm/project_1/SOURCES/pwm.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'pwm'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/petrv/Desktop/PLD/Stopwatch_pwm/project_1/SOURCES/pwm_tb.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'pwm_tb'
